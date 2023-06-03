@@ -17,13 +17,13 @@ namespace Hepra_testing_Mudblazor.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<List<User>> GetUsers()
+        public async Task<ActionResult<List<User>>> GetUsers()
         {
             var users = await _userService.GetUsers();
 
             if(users == null)
             {
-                return NotFound();
+                return NotFound(null);
             }
             else
             {
