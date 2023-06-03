@@ -30,7 +30,7 @@ namespace Hepra_testing_Mudblazor.Server.Services.UserService
             {
                 _logger.LogError(ex.Message);
 
-                return null;
+                return new List<User>();
             }
         }
 
@@ -42,7 +42,7 @@ namespace Hepra_testing_Mudblazor.Server.Services.UserService
 
                 if (user == null)
                 {
-                    return null;
+                    return new List<User>();
                 }
                 else
                 {
@@ -55,7 +55,7 @@ namespace Hepra_testing_Mudblazor.Server.Services.UserService
             {
                 _logger.LogError(ex.Message);
 
-                return null;
+                return new List<User>();
             }
         }
 
@@ -69,8 +69,8 @@ namespace Hepra_testing_Mudblazor.Server.Services.UserService
         public async Task<List<User>> GetUsers()
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-            var users = await connection.QueryAsync<List<User>>("select * from Users");
-            return users;
+            var users = await connection.QueryAsync<User>("select * from Users");
+            return users.ToList();
         }
 
         public async Task<List<User>> UpdateUser(User user)
@@ -80,7 +80,7 @@ namespace Hepra_testing_Mudblazor.Server.Services.UserService
                 var dbUser = await GetUserById(user.Id);
                 if (dbUser == null)
                 {
-                    return null;
+                    return new List<User>();
                 }
                 else
                 {
@@ -99,7 +99,7 @@ namespace Hepra_testing_Mudblazor.Server.Services.UserService
             {
                 _logger.LogError(ex.Message);
 
-                return null;
+                return new List<User>();
             }
         }
     }

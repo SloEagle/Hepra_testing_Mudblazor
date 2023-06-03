@@ -20,15 +20,35 @@ namespace Hepra_testing_Mudblazor.Server.Controllers
         public async Task<ActionResult<List<User>>> GetUsers()
         {
             var users = await _userService.GetUsers();
+            return Ok(users);
+        }
 
-            if(users == null)
-            {
-                return NotFound(null);
-            }
-            else
-            {
-                return Ok(users);
-            }
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<User>> GetUserById(int id)
+        {
+            var user = await _userService.GetUserById(id);
+            return Ok(user);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<List<User>>> AddUser(User user)
+        {
+            var result = await _userService.AddUser(user);
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<List<User>>> UpdateUser(User user)
+        {
+            var result = await _userService.UpdateUser(user);
+            return Ok(result);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<List<User>>> DeleteUser(int id)
+        {
+            var result = await _userService.DeleteUserById(id);
+            return Ok(result);
         }
     }
 }

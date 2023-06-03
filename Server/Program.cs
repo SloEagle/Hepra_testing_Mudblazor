@@ -1,4 +1,6 @@
 ﻿using Hepra_testing_Mudblazor.Server.Data;
+using Hepra_testing_Mudblazor.Server.Services.GroupService;
+using Hepra_testing_Mudblazor.Server.Services.UserService;
 using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +15,9 @@ builder.Services.AddDbContext<DataContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
     }
 );
+
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IGroupService, GroupService>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
