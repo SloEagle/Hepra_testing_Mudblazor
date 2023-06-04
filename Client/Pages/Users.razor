@@ -23,6 +23,13 @@ else
             <PropertyColumn Property="x => x.PhoneNumber" Title="Phone number"></PropertyColumn>
             <PropertyColumn Property="x => x.TaxNumber" Title="Tax number"></PropertyColumn>
             <PropertyColumn Property="x => x.Group.Name" Title="Group"></PropertyColumn>
+            <TemplateColumn CellClass="d-flex justify-end">
+                <CellTemplate>
+                    <MudStack Row>
+                        <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="@Color.Primary" OnClick="(() => GoToUser(context.Item.Id))">Edit</MudButton>
+                    </MudStack>
+                </CellTemplate>
+            </TemplateColumn>
         </Columns>
     </MudDataGrid>
 
@@ -39,13 +46,28 @@ else
             <PropertyColumn Property="x => x.Email" Title="E-mail"></PropertyColumn>
             <PropertyColumn Property="x => x.PhoneNumber" Title="Phone number"></PropertyColumn>
             <PropertyColumn Property="x => x.Group.Name" Title="Group"></PropertyColumn>
+            <TemplateColumn CellClass="d-flex justify-end">
+                <CellTemplate>
+                    <MudStack Row>
+                        <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="@Color.Primary" OnClick="(() => GoToUser(context.Item.Id))">Edit</MudButton>
+                    </MudStack>
+                </CellTemplate>
+            </TemplateColumn>
         </Columns>
     </MudDataGrid>
+
+    <br />
+    <br />
 }
 
 @code {
     protected override async Task OnInitializedAsync()
     {
         await UserService.GetUsers();
+    }
+
+    private void GoToUser(int id)
+    {
+        NavigationManager.NavigateTo($"user/{id}");
     }
 }

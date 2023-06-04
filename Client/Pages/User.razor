@@ -1,0 +1,37 @@
+﻿@page "/user/{Id:int}"
+@inject NavigationManager NavigationManager
+@inject IUserService UserService
+
+<h3>User</h3>
+
+@if(UserService.User == null)
+{
+    <span>Loading...</span>
+}
+else
+{
+    <EditForm Model="@UserService.User">
+        <MudGrid>
+            <MudItem>
+                <MudCard>
+                    <MudCardContent>
+                        <MudTextField Label="Name" @bind-Value="UserService.User.Name" For="@(() => UserService.User.Name)"></MudTextField>
+                        <MudTextField Label="Surname" @bind-Value="UserService.User.Surname" For="@(() => UserService.User.Surname)"></MudTextField>
+                        <MudTextField Label="Email" @bind-Value="UserService.User.Email" For="@(() => UserService.User.Email)"></MudTextField>
+                        <MudTextField Label="PhoneNumber" @bind-Value="UserService.User.PhoneNumber" For="@(() => UserService.User.PhoneNumber)"></MudTextField>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </EditForm>  
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; } = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserService.GetUserById(Id);
+    }
+}

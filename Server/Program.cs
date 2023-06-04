@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Asp.Versioning;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,9 @@ builder.Services.AddScoped<IGroupService, GroupService>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+// Validation
+builder.Services.AddFluentValidationAutoValidation();
 
 var app = builder.Build();
 
