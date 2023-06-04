@@ -10,7 +10,8 @@
 }
 else
 {
-    <EditForm Model="@UserService.User">
+    <EditForm Model="@UserService.User" OnValidSubmit="SetToValid" OnInvalidSubmit="SetToInvalid">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
         <MudGrid>
             <MudItem>
                 <MudCard>
@@ -23,15 +24,32 @@ else
                 </MudCard>
             </MudItem>
         </MudGrid>
+        <ValidationSummary></ValidationSummary>
+        <hr />
+        <MudButton ButtonType="ButtonType.Submit">Submit</MudButton>
     </EditForm>  
+
+    <MudAlert Severity="@SeverityLevel">Error state</MudAlert>
 }
 
 @code {
     [Parameter]
     public int Id { get; set; } = 0;
 
+    public MudBlazor.Severity SeverityLevel { get; set; } = Severity.Success;
+
     protected override async Task OnInitializedAsync()
     {
         await UserService.GetUserById(Id);
+    }
+
+    private void SetToValid()
+    {
+        SeverityLevel = Severity.Success;
+    }
+
+    private void SetToInvalid()
+    {
+        SeverityLevel = Severity.Error;
     }
 }
