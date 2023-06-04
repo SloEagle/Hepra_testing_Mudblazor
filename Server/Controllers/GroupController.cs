@@ -1,10 +1,4 @@
-﻿using Domain.Entities;
-using Hepra_testing_Mudblazor.Server.Data;
-using Hepra_testing_Mudblazor.Server.Services.GroupService;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace Hepra_testing_Mudblazor.Server.Controllers
+﻿namespace Hepra_testing_Mudblazor.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

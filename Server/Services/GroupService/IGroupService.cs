@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-
-namespace Hepra_testing_Mudblazor.Server.Services.GroupService
+﻿namespace Hepra_testing_Mudblazor.Server.Services.GroupService
 {
     public interface IGroupService
     {

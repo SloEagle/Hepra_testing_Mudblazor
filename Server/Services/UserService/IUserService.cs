@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-
-namespace Hepra_testing_Mudblazor.Server.Services.UserService
+﻿namespace Hepra_testing_Mudblazor.Server.Services.UserService
 {
     public interface IUserService
     {
@@ -9,5 +7,7 @@ namespace Hepra_testing_Mudblazor.Server.Services.UserService
         Task<List<User>> AddUser(User user);
         Task<List<User>> UpdateUser(User user);
         Task<List<User>> DeleteUserById(int id);
+
+        Task<List<UserDTO>> GetUsersDTO();
     }
 }

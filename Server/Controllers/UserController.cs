@@ -1,9 +1,4 @@
-﻿using Domain.Entities;
-using Hepra_testing_Mudblazor.Server.Services.UserService;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace Hepra_testing_Mudblazor.Server.Controllers
+﻿namespace Hepra_testing_Mudblazor.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -20,6 +15,13 @@ namespace Hepra_testing_Mudblazor.Server.Controllers
         public async Task<ActionResult<List<User>>> GetUsers()
         {
             var users = await _userService.GetUsers();
+            return Ok(users);
+        }
+
+        [HttpGet("dto")]
+        public async Task<ActionResult<List<UserDTO>>> GetUsersDTO()
+        {
+            var users = await _userService.GetUsersDTO();
             return Ok(users);
         }
 

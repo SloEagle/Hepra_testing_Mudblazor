@@ -1,9 +1,4 @@
-﻿using Dapper;
-using Domain.Entities;
-using Hepra_testing_Mudblazor.Server.Data;
-using Microsoft.Data.SqlClient;
-
-namespace Hepra_testing_Mudblazor.Server.Services.UserService
+﻿namespace Hepra_testing_Mudblazor.Server.Services.UserService
 {
     public class UserService : IUserService
     {
@@ -71,6 +66,13 @@ namespace Hepra_testing_Mudblazor.Server.Services.UserService
             using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
             var users = await connection.QueryAsync<User>("select * from Users");
             return users.ToList();
+        }
+
+        public async Task<List<UserDTO>> GetUsersDTO()
+        {
+            var users = await GetUsers();
+            var usersDTO = users.Adapt<List<UserDTO>>();
+            return usersDTO;
         }
 
         public async Task<List<User>> UpdateUser(User user)

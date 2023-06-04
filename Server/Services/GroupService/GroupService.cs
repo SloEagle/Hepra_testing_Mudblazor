@@ -1,9 +1,4 @@
-﻿using Dapper;
-using Domain.Entities;
-using Hepra_testing_Mudblazor.Server.Data;
-using Microsoft.Data.SqlClient;
-
-namespace Hepra_testing_Mudblazor.Server.Services.GroupService
+﻿namespace Hepra_testing_Mudblazor.Server.Services.GroupService
 {
     public class GroupService : IGroupService
     {

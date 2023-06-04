@@ -1,0 +1,28 @@
+﻿@page "/groups"
+@inject NavigationManager NavigationManager
+@inject IGroupService GroupService
+
+<h3>Groups</h3>
+
+@if(GroupService.Groups == null)
+{
+    <span>Loading...</span>
+}
+else
+{
+    <MudDataGrid Items="@GroupService.Groups" Filterable="true" SortMode="SortMode.Single" Groupable="true">
+        <ToolBarContent>
+            <MudText>Groups</MudText>
+        </ToolBarContent>
+        <Columns>
+            <PropertyColumn Property="x => x.Name" Title="Name"></PropertyColumn>
+        </Columns>
+    </MudDataGrid>
+}
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await GroupService.GetGroups();
+    }
+}

@@ -11,8 +11,8 @@ namespace Hepra_testing_Mudblazor.Client.Services.UserService
             _http = http;
         }
 
-        public List<User> Users { get; set; }
-        public User User { get; set; }
+        public List<User> Users { get; set; } = new List<User>();
+        public User User { get; set; } = new User();
 
         public async Task AddUser(User user)
         {

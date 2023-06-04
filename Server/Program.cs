@@ -1,6 +1,14 @@
-﻿using Hepra_testing_Mudblazor.Server.Data;
-using Hepra_testing_Mudblazor.Server.Services.GroupService;
-using Hepra_testing_Mudblazor.Server.Services.UserService;
+﻿global using Microsoft.AspNetCore.Http;
+global using Dapper;
+global using Hepra_testing_Mudblazor.Server.Data;
+global using Mapster;
+global using Microsoft.Data.SqlClient;
+global using Microsoft.AspNetCore.Mvc;
+global using Domain.DTOs;
+global using Domain.Entities;
+global using Hepra_testing_Mudblazor.Server.Services.UserService;
+global using Hepra_testing_Mudblazor.Server.Services.GroupService;
+
 using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
