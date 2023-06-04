@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepra_testing_Mudblazor.Client", "Client\Hepra_testing_Mudblazor.Client.csproj", "{FB1BC1E9-3CC4-46DD-B7B6-3DC196A22230}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hepra_testing_Mudblazor.Client", "Client\Hepra_testing_Mudblazor.Client.csproj", "{FB1BC1E9-3CC4-46DD-B7B6-3DC196A22230}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepra_testing_Mudblazor.Server", "Server\Hepra_testing_Mudblazor.Server.csproj", "{EDF9E6B7-7824-48FC-B730-66C1FA86796A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hepra_testing_Mudblazor.Server", "Server\Hepra_testing_Mudblazor.Server.csproj", "{EDF9E6B7-7824-48FC-B730-66C1FA86796A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5F170A6A-B9AB-4422-82E7-D8AFB9C53F81}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{873F9113-4E3F-4020-98CA-633BE4FFB3B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{4E5785D3-D9EF-4C94-8991-705D130232CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{4E5785D3-D9EF-4C94-8991-705D130232CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{0E5133AB-C061-4DE8-A408-A25E7F9B277D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{0E5133AB-C061-4DE8-A408-A25E7F9B277D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{F1BE2DBC-4713-47CE-BA0C-AB876E4B9DC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{F1BE2DBC-4713-47CE-BA0C-AB876E4B9DC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

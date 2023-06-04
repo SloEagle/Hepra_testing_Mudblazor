@@ -1,0 +1,31 @@
+﻿@page "/users"
+@inject NavigationManager NavigationManager
+@inject IUserService UserService
+
+<h3>Users</h3>
+
+@if(UserService.Users == null)
+{
+    <span>Loading...</span>
+}
+else
+{
+    <MudDataGrid Items="@UserService.Users" MultiSelection="true" SortMode="SortMode.Multiple" Filterable="true" Hideable="true">
+        <ToolBarContent>
+            <MudText>Users</MudText>
+        </ToolBarContent>
+        <Columns>
+            <PropertyColumn Property="x => x.Name" Title="Name"></PropertyColumn>
+            <PropertyColumn Property="x => x.Surname" Title="Surname"></PropertyColumn>
+            <PropertyColumn Property="x => x.Email" Title="E-mail"></PropertyColumn>
+            <PropertyColumn Property="x => x.PhoneNumber" Title="Phone number"></PropertyColumn>
+        </Columns>
+    </MudDataGrid>
+}
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await UserService.GetUsers();
+    }
+}
