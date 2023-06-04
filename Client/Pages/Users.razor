@@ -19,6 +19,21 @@ else
             <PropertyColumn Property="x => x.Surname" Title="Surname"></PropertyColumn>
             <PropertyColumn Property="x => x.Email" Title="E-mail"></PropertyColumn>
             <PropertyColumn Property="x => x.PhoneNumber" Title="Phone number"></PropertyColumn>
+            <PropertyColumn Property="x => x.TaxNumber" Title="Tax number"></PropertyColumn>
+            <PropertyColumn Property="x => x.Group.Name" Title="Group"></PropertyColumn>
+        </Columns>
+    </MudDataGrid>
+
+    <MudDataGrid Items="@UserService.Users" MultiSelection="true" SortMode="SortMode.Multiple" Filterable="true" Hideable="true">
+        <ToolBarContent>
+            <MudText>Users DTO</MudText>
+        </ToolBarContent>
+        <Columns>
+            <PropertyColumn Property="x => x.Name" Title="Name"></PropertyColumn>
+            <PropertyColumn Property="x => x.Surname" Title="Surname"></PropertyColumn>
+            <PropertyColumn Property="x => x.Email" Title="E-mail"></PropertyColumn>
+            <PropertyColumn Property="x => x.PhoneNumber" Title="Phone number"></PropertyColumn>
+            <PropertyColumn Property="x => x.Group.Name" Title="Group"></PropertyColumn>
         </Columns>
     </MudDataGrid>
 }

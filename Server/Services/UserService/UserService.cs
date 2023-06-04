@@ -1,4 +1,6 @@
-﻿namespace Hepra_testing_Mudblazor.Server.Services.UserService
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Hepra_testing_Mudblazor.Server.Services.UserService
 {
     public class UserService : IUserService
     {
@@ -56,16 +58,19 @@
 
         public async Task<User> GetUserById(int id)
         {
-            using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-            var user = await connection.QueryFirstOrDefaultAsync<User>($"select * from Users where Id = {id}");
+            var user = await _context.Users
+                .Where(u => u.Id == id)
+                .Include(u => u.Group)
+                .FirstOrDefaultAsync();
             return user;
         }
 
         public async Task<List<User>> GetUsers()
         {
-            using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-            var users = await connection.QueryAsync<User>("select * from Users");
-            return users.ToList();
+            var users = await _context.Users
+                .Include(u => u.Group)
+                .ToListAsync();
+            return users;
         }
 
         public async Task<List<UserDTO>> GetUsersDTO()
