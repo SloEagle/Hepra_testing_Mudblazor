@@ -1,5 +1,8 @@
-﻿namespace Hepra_testing_Mudblazor.Server.Controllers
+﻿using Asp.Versioning;
+
+namespace Hepra_testing_Mudblazor.Server.Controllers
 {
+    [ApiVersion("1.0")]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
